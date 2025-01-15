@@ -11,19 +11,17 @@ class NomorDua
 
 	public function submit(Request $request)
 	{
-		$request->validate([
-			'name' => 'required|string|max:255',
-			'start' => 'required|date',
-			'end' => 'required|date|after_or_equal:start',
-		]);
+		$event = new Event();
+		$event->user_id = Auth::id();
+		$event->name = $request->nama;
+		$event->start = $request->start;
+		$event->end = $request->end;
+		$event->save();
 
-		Event::create([
-			'user_id' => Auth::id(),
-			'name' => $request->name,
-			'start' => $request->start,
-			'end' => $request->end,
-		]);
-
-		return redirect()->route('event.home')->with('success', 'Jadwal berhasil ditambahkan.');
+		if ($event->save()) {
+			return redirect()->route('event.home')->with('message', ['Event berhasil ditambahkan', 'success']);
+		} else {
+			return redirect()->route('event.home')->with('message', ['Event gagal ditambahkan', 'danger']);
+		}
 	}
 }
