@@ -12,17 +12,17 @@ class NomorSatu
 	{
 		// Tuliskan code untuk proses login dengan menggunakan email/username dan password
 		$request->validate([
-			'username' => 'required',
+			'email' => 'required',
 			'password' => 'required'
 		]);
 
-		$username = $request->input('username');
+		$email = $request->input('email');
 		$password = $request->input('password');
 
-		if (Auth::attempt(['username' => $username, 'password' => $password])) {
+		if (Auth::attempt(['email' => $email, 'password' => $password])) {
 			return redirect()->route('event.home')->with('message', ['Login berhasil', 'success']);
 		} else {
-			return redirect()->back()->with('message', ['Username atau password salah', 'danger']);
+			return redirect()->back()->with('message', ['email atau password salah', 'danger']);
 		}
 	}
 
