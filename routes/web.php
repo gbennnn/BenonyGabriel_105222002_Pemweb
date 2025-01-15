@@ -19,6 +19,16 @@ use App\Http\Controllers\SchedulerController;
 Route::post('auth', [AuthController::class, 'auth'])->name('auth');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+
+// 
+Route::get('/', [SchedulerController::class, 'home'])->name('event.home');
+Route::post('/submit', [SchedulerController::class, 'submit'])->name('event.submit');
+Route::post('/update', [SchedulerController::class, 'update'])->name('event.update');
+Route::post('/delete', [SchedulerController::class, 'delete'])->name('event.delete');
+Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// 
+
 Route::prefix('event')->name('event.')->group(function () {
     Route::get('/', [SchedulerController::class, 'home'])->name('home');
     Route::post('submit', [SchedulerController::class, 'submit'])->name('submit');
