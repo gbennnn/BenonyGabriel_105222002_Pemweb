@@ -46,10 +46,10 @@ class NomorTiga
 			$event->end = $request->end;
 			$event->save();
 
-			return redirect()->route('event.home')->with('message', ['Event berhasil diupdate', 'success']);
+			return redirect()->route('event.home')->with('message', ['Jadwal berhasil diupdate', 'success']);
 		}
 
-		return redirect()->route('event.home')->with('message', ['Event gagal diupdate', 'danger']);
+		return redirect()->route('event.home')->with('message', ['Jadwal gagal diupdate', 'danger']);
 	}
 
 	public function delete(Request $request)
@@ -59,9 +59,9 @@ class NomorTiga
 
 		if ($event && $event->user_id == Auth::id()) {
 			$event->delete();
-			return redirect()->route('event.home')->with('message', ['Event berhasil dihapus', 'success']);
+			return redirect()->route('event.home')->with('message', ['Jadwal berhasil dihapus', 'success']);
 		}
 
-		return redirect()->route('event.home')->with('message', ['Event gagal dihapus', 'danger']);
+		return redirect()->route('event.home')->with('message', ['Jadwal gagal dihapus', 'danger']);
 	}
 }
