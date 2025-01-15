@@ -10,35 +10,27 @@ class NomorSatu
 
 	public function auth(Request $request)
 	{
-		// Validasi input
+		// Tuliskan code untuk proses login dengan menggunakan email/username dan password
 		$request->validate([
-			'email' => 'required|email',
-			'password' => 'required|min:6',
+			'username' => 'required',
+			'password' => 'required'
 		]);
 
-		// Ambil kredensial dari request
-		$credentials = $request->only('email', 'password');
+		$username = $request->input('username');
+		$password = $request->input('password');
 
-		// Autentikasi user
-		if (Auth::attempt($credentials)) {
-			$request->session()->regenerate();
-			return redirect()->route('event.home')->with('success', 'Login berhasil!');
+		if (Auth::attempt(['username' => $username, 'password' => $password])) {
+			return redirect()->route('event.home')->with('message', ['Login berhasil', 'success']);
+		} else {
+			return redirect()->back()->with('message', ['Username atau password salah', 'danger']);
 		}
-
-		// Jika login gagal
-		return back()->withErrors([
-			'email' => 'Email atau password salah.',
-		]);
 	}
 
-	public function logout(Request $request)
+	public function logout()
 	{
+
+		// Tuliskan code untuk menangani proses logout
 		Auth::logout();
-
-		// Hapus session
-		$request->session()->invalidate();
-		$request->session()->regenerateToken();
-
-		return redirect()->route('event.home')->with('success', 'Logout berhasil!');
+		return redirect()->route('event.home');
 	}
 }
