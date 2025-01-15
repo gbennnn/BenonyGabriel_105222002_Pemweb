@@ -7,41 +7,47 @@ use App\Jawaban\NomorDua;
 use App\Jawaban\NomorTiga;
 use App\Jawaban\NomorEmpat;
 
-class SchedulerController extends Controller {
+class SchedulerController extends Controller
+{
+    public function home()
+    {
 
-    public function home () {
-
-        $nomorTiga = new NomorTiga(); 
+        $nomorTiga = new NomorTiga();
         $events = $nomorTiga->getData();
 
         return view('home.index', compact('events'));
     }
 
-    public function submit (Request $request) {
+    public function submit(Request $request)
+    {
 
         $nomorDua = new NomorDua();
         return $nomorDua->submit($request);
     }
 
-    public function getJson () {
+    public function getJson()
+    {
 
         $nomorEmpat = new NomorEmpat();
-        return $nomorEmpat->getJson(); 
+        return $nomorEmpat->getJson();
     }
 
-    public function getSelectedData (Request $request) {
+    public function getSelectedData(Request $request)
+    {
 
-        $nomorTiga = new NomorTiga(); 
+        $nomorTiga = new NomorTiga();
         return $nomorTiga->getSelectedData($request);
     }
 
-    public function update (Request $request) {
+    public function update(Request $request)
+    {
 
         $nomorTiga = new NomorTiga();
         return $nomorTiga->update($request);
     }
 
-    public function delete (Request $request) {
+    public function delete(Request $request)
+    {
 
         $nomorTiga = new NomorTiga();
         return $nomorTiga->delete($request);
