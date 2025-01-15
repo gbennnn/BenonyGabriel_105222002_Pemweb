@@ -23,10 +23,10 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username/Email</label>
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="105222002/105222002@example.com"
-                        value="105222002@student.universitaspertamina.ac.id" name="email">
+                        placeholder="105222002@example.com" value="105222002@student.universitaspertamina.ac.id"
+                        name="email">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
