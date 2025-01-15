@@ -16,7 +16,7 @@
 
     <div class="content">
         <div class="profile-picture">
-            <p>Foto profil</p>
+            <img src="{{ asset('img/profile-pic-benony.png') }}" alt="Profile Picture Benony">
         </div>
         <h2>Benony Gabriel</h2>
         <p class="nim">NIM: 105222002</p>
