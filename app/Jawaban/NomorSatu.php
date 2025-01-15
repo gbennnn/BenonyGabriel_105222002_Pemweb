@@ -31,6 +31,6 @@ class NomorSatu
 
 		// Tuliskan code untuk menangani proses logout
 		Auth::logout();
-		return redirect()->route('event.home');
+		return redirect()->route('welcome');
 	}
 }
