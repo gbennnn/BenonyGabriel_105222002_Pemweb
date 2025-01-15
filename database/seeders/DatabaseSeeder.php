@@ -6,22 +6,24 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class DatabaseSeeder extends Seeder {
- 
-    public function run(): void {
+class DatabaseSeeder extends Seeder
+{
+
+    public function run(): void
+    {
 
         User::truncate();
 
-        for ($i=10; $i<25; $i++) { 
+        for ($i = 1; $i < 10; $i++) {
 
-            $nim = "1052210{$i}";
-            
+            $nim = "10522100{$i}";
+
             User::create([
                 'username' => $nim,
                 'name' => "User {$nim}",
-                'email' => "{$nim}@example.com",
+                'email' => "{$nim}@student.universitaspertamina.ac.id",
                 'password' => bcrypt('password'),
-            ]);   
+            ]);
         }
     }
 }
