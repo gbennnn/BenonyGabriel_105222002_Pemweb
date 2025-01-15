@@ -20,6 +20,7 @@ class EventSeeder extends Seeder
         foreach ($days as $day) {
             if (is_array($day)) {
                 $events[] = [
+                    'user_id' => $fake->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9]),
                     'name' => $fake->sentence(3),
                     'start' => date('Y-m-d', strtotime($today . '+ ' . $day[0] . ' days')),
                     'end' => date('Y-m-d', strtotime($today . '+ ' . $day[1] . ' days')),
@@ -29,6 +30,7 @@ class EventSeeder extends Seeder
                 ];
             } else {
                 $events[] = [
+                    'user_id' => $fake->randomElement([1, 2, 3, 4, 5, 6, 7, 8, 9]),
                     'name' => $fake->sentence(3),
                     'start' => date('Y-m-d', strtotime($today . '+ ' . $day . ' days')),
                     'end' => date('Y-m-d', strtotime($today . '+ ' . $day . ' days')),
