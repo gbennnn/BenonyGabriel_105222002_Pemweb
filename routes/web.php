@@ -37,3 +37,8 @@ Route::prefix('event')->name('event.')->group(function () {
     Route::get('get-json', [SchedulerController::class, 'getJson'])->name('get-json');
     Route::get('get-selected-data', [SchedulerController::class, 'getSelectedData'])->name('get-selected-data');
 });
+
+// 
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [SchedulerController::class, 'home'])->name('event.home');
+});
