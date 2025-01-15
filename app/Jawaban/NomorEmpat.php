@@ -12,6 +12,10 @@ class NomorEmpat
 
 	public function getJson()
 	{
+		// $data = Event::all();
+		// return response()->json($data);
+
+
 		$events = Event::with('user')->get();
 
 		$data = $events->map(function ($event) {
