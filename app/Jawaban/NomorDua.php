@@ -21,9 +21,9 @@ class NomorDua
 		$event->save();
 
 		if ($event->save()) {
-			return redirect()->route('event.home')->with('message', ['Event berhasil ditambahkan', 'success']);
+			return redirect()->route('event.home')->with('message', ['Jadwal berhasil ditambahkan', 'success']);
 		} else {
-			return redirect()->route('event.home')->with('message', ['Event gagal ditambahkan', 'danger']);
+			return redirect()->route('event.home')->with('message', ['Jadwal gagal ditambahkan', 'danger']);
 		}
 	}
 }
