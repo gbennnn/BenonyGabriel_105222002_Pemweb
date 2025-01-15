@@ -14,7 +14,7 @@ class NomorSatu
 
 		if (Auth::attempt($credentials)) {
 			$request->session()->regenerate();
-			return redirect()->route('event.home');
+			return redirect()->intended('event.home');
 		}
 
 		return back()->withErrors([
