@@ -24,6 +24,7 @@ Route::post('auth', [AuthController::class, 'auth'])->name('auth');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::prefix('event')->name('event.')->group(function () {
+    // Route::get('events/list', [EventController::class, 'listEvent'])->name('events.list');
     Route::get('/', [SchedulerController::class, 'home'])->name('home');
     Route::post('submit', [SchedulerController::class, 'submit'])->name('submit');
     Route::post('update', [SchedulerController::class, 'update'])->name('update');
