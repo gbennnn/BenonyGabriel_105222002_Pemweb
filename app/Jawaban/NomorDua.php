@@ -11,6 +11,8 @@ class NomorDua
 
 	public function submit(Request $request)
 	{
+		// Tuliskan code untuk menyimpan data Jadwal 
+
 		$event = new Event();
 		$event->user_id = Auth::id();
 		$event->name = $request->nama;

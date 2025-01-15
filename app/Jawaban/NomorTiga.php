@@ -17,7 +17,6 @@ class NomorTiga
 
 	public function getSelectedData(Request $request)
 	{
-		// Tuliskan code mengambil 1 data jadwal user dengan id jadwal, simpan di variabel $data
 		$data = Event::find($request->id);
 		return response()->json($data);
 
