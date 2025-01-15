@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 1; $i < 10; $i++) {
 
-            $nim = "10522100{$i}";
+            $nim = "10522200{$i}";
 
             User::create([
                 'username' => $nim,
