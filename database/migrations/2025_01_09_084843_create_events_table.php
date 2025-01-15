@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
-            $table->date('start'); 
+            $table->date('start');
             $table->date('end');
+            $table->string('category');
             $table->timestamps();
         });
     }
