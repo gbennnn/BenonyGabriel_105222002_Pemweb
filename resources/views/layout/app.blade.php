@@ -148,25 +148,6 @@
     <script src="{{ asset('argon/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
     @yield('addon-script')
-
-    <script>
-        < script >
-            document.addEventListener('DOMContentLoaded', function() {
-                var deleteButtons = document.querySelectorAll('.btn-delete');
-                var deleteModal = document.getElementById('deleteModal');
-                var deleteForm = document.getElementById('deleteForm');
-                var deleteIdInput = document.getElementById('deleteId');
-
-                deleteButtons.forEach(function(button) {
-                    button.addEventListener('click', function() {
-                        var eventId = this.getAttribute('data-id');
-                        deleteIdInput.value = eventId;
-                        $(deleteModal).modal('show');
-                    });
-                });
-            }); <
-        />
-    </script>
 </body>
 
 </html>
