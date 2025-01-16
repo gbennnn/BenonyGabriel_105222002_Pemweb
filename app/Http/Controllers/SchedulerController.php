@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class SchedulerController extends Controller
 {
+    public function index()
+    {
+        $events = Event::all();
+        return view('jawaban.NomorTiga.index', compact('events'));
+    }
+
     public function home()
     {
 
