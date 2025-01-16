@@ -22,22 +22,8 @@ class SchedulerController extends Controller
     public function submit(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'start' => 'required|date',
-            'end' => 'required|date|after_or_equal:start',
-            // 'category' => 'required|string',
-        ]);
-
-        Event::create([
-            'user_id' => auth()->id(), // Ensure the user is authenticated
-            'name' => $request->input('name'),
-            'start' => $request->input('start'),
-            'end' => $request->input('end'),
-            // 'category' => $request->input('category'),
-        ]);
-
-        return redirect()->route('event.home')->with('success', 'Event created successfully.');
+        $nomorDua = new NomorDua();
+        return $nomorDua->submit($request);
     }
 
     public function getJson()
