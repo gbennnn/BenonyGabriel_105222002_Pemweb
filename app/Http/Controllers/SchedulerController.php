@@ -49,29 +49,8 @@ class SchedulerController extends Controller
 
     public function update(Request $request)
     {
-
-        $request->validate([
-            'id' => 'required|exists:events,id',
-            'name' => 'required|string|max:255',
-            'start' => 'required|date',
-            'end' => 'required|date|after_or_equal:start',
-        ]);
-
-        $event = Event::find($request->id);
-
-        if ($event && $event->user_id == Auth::id()) {
-            $event->name = $request->name;
-            $event->start = $request->start;
-            $event->end = $request->end;
-            $event->save();
-
-            return redirect()->route('event.home')->with('message', ['Jadwal berhasil diupdate', 'success']);
-        }
-
-        return redirect()->route('event.home')->with('message', ['Jadwal gagal diupdate', 'danger']);
-
-        // $nomorTiga = new NomorTiga();
-        // return $nomorTiga->update($request);
+        $nomorTiga = new NomorTiga();
+        return $nomorTiga->update($request);
     }
 
     public function delete(Request $request)
