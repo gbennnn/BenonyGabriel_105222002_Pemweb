@@ -92,7 +92,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm rounded-circle">
-                                        @if (Auth::user())
+                                        @if (Auth::user() && Auth::user()->id == 2)
                                             <img alt="Image placeholder"
                                                 src="{{ asset('img/profile-pic-benony.png') }}">
                                         @else
