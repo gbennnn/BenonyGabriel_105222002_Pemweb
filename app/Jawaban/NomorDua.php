@@ -13,11 +13,11 @@ class NomorDua
 	{
 		// Tuliskan code untuk menyimpan data Jadwal 
 
-		$request->validate([
-			'name' => 'required|string|max:255',
-			'start' => 'required|date',
-			'end' => 'required|date|after_or_equal:start',
-		]);
+		// $request->validate([
+		// 	'name' => 'required|string|max:255',
+		// 	'start' => 'required|date',
+		// 	'end' => 'required|date|after_or_equal:start',
+		// ]);
 
 		$event = new Event();
 		$event->user_id = Auth::id();

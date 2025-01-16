@@ -22,7 +22,7 @@ class NomorSatu
 		if (Auth::attempt(['email' => $email, 'password' => $password])) {
 			return redirect()->route('event.home')->with('message', ['Login berhasil', 'success']);
 		} else {
-			return redirect()->back()->with('message', ['email atau password salah', 'danger']);
+			return redirect()->back()->with('message', ['Email atau password salah', 'danger']);
 		}
 	}
 
