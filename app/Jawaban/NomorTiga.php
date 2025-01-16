@@ -8,6 +8,7 @@ use App\Models\Event;
 
 class NomorTiga
 {
+
 	public function getData()
 	{
 		// Tuliskan code mengambil semua data jadwal user, simpan di variabel $data
@@ -30,14 +31,6 @@ class NomorTiga
 	public function update(Request $request)
 	{
 		// Tuliskan code mengupdate 1 jadwal
-		$request->validate([
-			'id' => 'required|exists:events,id',
-			'name' => 'required|string|max:255',
-			'start' => 'required|date',
-			'end' => 'required|date|after_or_equal:start',
-		]);
-
-
 		$event = Event::find($request->id);
 
 		if ($event && $event->user_id == Auth::id()) {
