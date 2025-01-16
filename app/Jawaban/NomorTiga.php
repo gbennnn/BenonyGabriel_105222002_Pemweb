@@ -37,11 +37,10 @@ class NomorTiga
 			'end' => 'required|date|after_or_equal:start',
 		]);
 
-
 		$event = Event::find($request->id);
 
 		if ($event && $event->user_id == Auth::id()) {
-			$event->name = $request->nama;
+			$event->name = $request->name;
 			$event->start = $request->start;
 			$event->end = $request->end;
 			$event->save();
