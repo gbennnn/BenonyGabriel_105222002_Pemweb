@@ -10,15 +10,21 @@
             </div>
             <div class="modal-body">
                 <label>Event</label>
-                <input type="text" class="form-control" name="nama" required placeholder="Masukkan nama event"
-                    value="Bikin tubes Pemweb">
+                <input type="text" class="form-control" name="nama" required placeholder="Masukkan nama event">
                 <label class="mt-2">Start</label>
-                <input type="date" class="form-control" name="start" required value="2025-01-17">
+                <input type="date" class="form-control" name="start" required>
                 <label class="mt-2">End</label>
-                <input type="date" class="form-control" name="end" required value="2025-01-20">
+                <input type="date" class="form-control" name="end" required>
+                <label class="mt-2">Category</label>
+                <select class="form-control" name="category" required>
+                    <option value="success">Success</option>
+                    <option value="danger">Danger</option>
+                    <option value="warning">Warning</option>
+                    <option value="info">Info</option>
+                </select>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary"> Submit </button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
     </div>
