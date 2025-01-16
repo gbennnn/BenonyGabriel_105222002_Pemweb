@@ -1,5 +1,6 @@
 <?php
 
+use App\Jawaban\NomorEmpat;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SchedulerController;
@@ -34,3 +35,4 @@ Route::prefix('event')->name('event.')->group(function () {
 });
 
 Route::get('/events', [SchedulerController::class, 'index'])->name('events.index');
+Route::get('/api/events', [NomorEmpat::class, 'getJson'])->name('api.events');

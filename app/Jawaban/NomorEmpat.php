@@ -12,21 +12,14 @@ class NomorEmpat
 
 	public function getJson()
 	{
-		// $data = Event::all();
-		// return response()->json($data);
-
-
-		$events = Event::with('user')->get();
-
-		$data = $events->map(function ($event) {
+		$userId = Auth::id(); // ID user yang sedang login
+		$data = Event::all()->map(function ($event) use ($userId) {
 			return [
 				'id' => $event->id,
-				'title' => $event->name . ' (' . $event->user->name . ')',
-				'start' => Carbon::parse($event->start)->format('Y-m-d'),
-				'end' => Carbon::parse($event->end)->addDay()->format('Y-m-d'),
-				'backgroundColor' => $event->user_id === Auth::id() ? '#0d6efd' : '#6c757d',
-				'borderColor' => $event->user_id === Auth::id() ? '#0d6efd' : '#6c757d',
-				'textColor' => '#ffffff'
+				'name' => $event->name . ' - ' . $event->user->name, // Gabungan nama jadwal dan nama user
+				'start' => $event->start,
+				'end' => $event->end,
+				'color' => $event->user_id === $userId ? 'blue' : 'gray', // Warna berdasarkan user yang login
 			];
 		});
 
