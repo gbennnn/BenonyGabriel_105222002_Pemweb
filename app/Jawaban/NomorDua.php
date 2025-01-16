@@ -24,6 +24,7 @@ class NomorDua
 		$event->name = $request->nama;
 		$event->start = $request->start;
 		$event->end = $request->end;
+		$event->category = $request->category;
 		$event->save();
 
 		if ($event->save()) {
