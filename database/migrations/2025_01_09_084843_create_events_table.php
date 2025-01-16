@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->date('start');
             $table->date('end');
-            $table->string('category');
+            $table->string('category')->default('info');
             $table->timestamps();
         });
     }

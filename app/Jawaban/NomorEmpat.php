@@ -4,22 +4,33 @@ namespace App\Jawaban;
 
 use Carbon\Carbon;
 use App\Models\Event;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class NomorEmpat
 {
-
 	public function getJson()
 	{
-		$userId = Auth::id();
-		$data = Event::with('user')->get()->map(function ($event) use ($userId) {
+		$events = Event::with('user')->get();
+
+		$data = $events->map(function ($event) {
+			$categoryColors = [
+				'success' => '#198754', // Hijau
+				'danger' => '#dc3545', // Merah
+				'warning' => '#ffc107', // Kuning
+				'info' => '#0dcaf0'    // Biru Muda
+			];
+
+			$backgroundColor = $categoryColors[$event->category] ?? '#6c757d'; // Default abu-abu
+			$borderColor = $backgroundColor;
+
 			return [
 				'id' => $event->id,
-				'title' => $event->name . ' - ' . $event->user->name,
-				'start' => $event->start,
-				'end' => $event->end,
-				'color' => $event->user_id == $userId ? 'blue' : 'gray',
+				'title' => $event->name . ' (' . $event->user->name . ')',
+				'start' => Carbon::parse($event->start)->format('Y-m-d'),
+				'end' => Carbon::parse($event->end)->addDay()->format('Y-m-d'),
+				'backgroundColor' => $backgroundColor,
+				'borderColor' => $borderColor,
+				'textColor' => '#ffffff',
 			];
 		});
 
