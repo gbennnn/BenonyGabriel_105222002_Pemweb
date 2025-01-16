@@ -31,5 +31,33 @@
     @endif
 </table>
 
+{{-- Modal konfirmasi hapus --}}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah Anda yakin ingin menghapus jadwal ini?
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" method="POST" action="{{ route('event.delete') }}">
+                    @csrf
+                    <input type="hidden" name="id" id="deleteId">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Edit --}}
+
 <!-- Gunakan tag form dibawah ini untuk submit data jadwal yang akan diupdate. Gunakan contoh modal yang sudah dibuat pada nomor 1 dan 2 sebagai referensi -->
 <!-- <form class="modal-content" method="POST" action="{{ route('event.update') }}"> </form> -->
