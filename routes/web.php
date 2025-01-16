@@ -35,4 +35,4 @@ Route::prefix('event')->name('event.')->group(function () {
 });
 
 Route::get('/events', [SchedulerController::class, 'index'])->name('events.index');
-Route::get('/api/events', [NomorEmpat::class, 'getJson'])->name('api.events');
+Route::get('/api/events', [NomorEmpat::class, 'getJson'])->name('event.get-json');

@@ -12,14 +12,14 @@ class NomorEmpat
 
 	public function getJson()
 	{
-		$userId = Auth::id(); // ID user yang sedang login
-		$data = Event::all()->map(function ($event) use ($userId) {
+		$userId = Auth::id();
+		$data = Event::with('user')->get()->map(function ($event) use ($userId) {
 			return [
 				'id' => $event->id,
-				'name' => $event->name . ' - ' . $event->user->name, // Gabungan nama jadwal dan nama user
+				'title' => $event->name . ' - ' . $event->user->name,
 				'start' => $event->start,
 				'end' => $event->end,
-				'color' => $event->user_id === $userId ? 'blue' : 'gray', // Warna berdasarkan user yang login
+				'color' => $event->user_id == $userId ? 'blue' : 'gray',
 			];
 		});
 
